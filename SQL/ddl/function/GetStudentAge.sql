@@ -1,8 +1,10 @@
 USE school_management;
 
-CREATE FUNCTION GetStudentAge(student_dob DATE) RETURNS INT
+CREATE FUNCTION GetStudentAge(student_dob DATE) 
+RETURNS INT
+NOT DETERMINISTIC
 BEGIN
-DECLARE student_age INT;
-SET student_age = TIMESTAMPDIFF(YEAR, student_dob, CURDATE());
-RETURN student_age;
+    DECLARE student_age INT;
+    SET student_age = TIMESTAMPDIFF(YEAR, student_dob, CURDATE());
+    RETURN student_age;
 END;
