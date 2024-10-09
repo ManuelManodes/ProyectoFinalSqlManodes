@@ -60,6 +60,3 @@ FROM
     student s
 JOIN enrollment e ON s.student_id = e.student_id
 JOIN extracurricular_activity ea ON e.course_id = ea.activity_id;
-
-
-
