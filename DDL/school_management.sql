@@ -142,3 +142,15 @@ CREATE TABLE extracurricular_activity (
     end_date DATE,
     PRIMARY KEY (activity_id)
 );
+
+CREATE TABLE grade_fact (
+    grade_fact_id INT(11) PRIMARY KEY,
+    assessment_date DATE,
+    course_id INT(11),
+    grade FLOAT,
+    student_id INT(11),
+    teacher_id INT(11),
+    FOREIGN KEY (course_id) REFERENCES course(course_id),
+    FOREIGN KEY (student_id) REFERENCES student(student_id),
+    FOREIGN KEY (teacher_id) REFERENCES teacher(teacher_id)
+);
