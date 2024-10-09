@@ -8,6 +8,8 @@ CREATE PROCEDURE RegisterAttendance(
     IN attendanceDate DATE,
     IN attendanceStatus VARCHAR(10)
 )
+MODIFIES SQL DATA
+NOT DETERMINISTIC
 BEGIN
     -- Verificar si el estudiante ya tiene un registro de asistencia para esa fecha y curso
     IF EXISTS (SELECT * FROM attendance 
