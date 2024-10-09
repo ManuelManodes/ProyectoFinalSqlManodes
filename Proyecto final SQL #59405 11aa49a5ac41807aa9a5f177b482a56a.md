@@ -101,7 +101,7 @@ La implementación del sistema permitirá a las instituciones educativas:
     | exam | BASE TABLE | exam_id | INT(11) | Clave Primaria | Identificador único del examen. (Clave primaria). |
     | exam | BASE TABLE | exam_type | VARCHAR(50) |  | Tipo de examen (por ejemplo, parcial, final). |
     | exam | BASE TABLE | total_marks | INT(11) |  | Puntuación total del examen. |
-    | extracurricular_activity | BASE TABLE | activity_id | INT(11) | Clave Primaria | Identificador único de la actividad extracurricular. (Clave primaria). |
+    | extracurricular_activity | BASE TABLE | activity_id | INT(11) | Clave Primaria | Identificador único de la actividad extracurricular.(Clave primaria).|
     | extracurricular_activity | BASE TABLE | activity_name | VARCHAR(100) |  | Nombre de la actividad extracurricular. |
     | extracurricular_activity | BASE TABLE | description | TEXT |  | Breve descripción de la actividad. |
     | extracurricular_activity | BASE TABLE | end_date | DATE |  | Fecha de finalización de la actividad. |
