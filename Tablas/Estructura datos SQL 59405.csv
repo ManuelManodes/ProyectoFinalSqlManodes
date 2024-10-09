@@ -1,0 +1,110 @@
+Nombre de la Tabla/Vista;Tipo (Tabla o Vista);Columna;Tipo de Dato Completo;Tipo de Clave;Tabla Referenciada;Columna Referenciada;Descripción
+attendance;BASE TABLE;attendance_id;INT(11);Clave Primaria;;;Identificador único de cada registro de asistencia. (Clave primaria)
+attendance;BASE TABLE;course_id;INT(11);Clave Foránea;course;course_id;Identificador del curso al que pertenece el registro de asistencia. (Clave foránea)
+attendance;BASE TABLE;date;DATE;;;;Fecha en la que se tomó la asistencia.
+attendance;BASE TABLE;status;VARCHAR(10);;;;Estado de asistencia del estudiante (por ejemplo, presente, ausente).
+attendance;BASE TABLE;student_id;INT(11);Clave Foránea;student;student_id;Identificador del estudiante al que corresponde la asistencia. (Clave foránea)
+attendance_log;BASE TABLE;attendance_id;INT(11);Clave Foránea;attendance;attendance_id;Identificador del registro de asistencia asociado. (Clave foránea)
+attendance_log;BASE TABLE;changed_by;VARCHAR(100);;;;Identificador del usuario o administrador que realizó el cambio.
+attendance_log;BASE TABLE;change_date;DATETIME;;;;Fecha en la que se realizó el cambio en el registro de asistencia.
+attendance_log;BASE TABLE;log_id;INT(11);Clave Primaria;;;Identificador único del registro de cambio de asistencia. (Clave primaria)
+attendance_log;BASE TABLE;new_status;VARCHAR(10);;;;Nuevo estado de asistencia después de la modificación.
+attendance_log;BASE TABLE;old_status;VARCHAR(10);;;;Estado de asistencia antes de la modificación.
+classroom;BASE TABLE;capacity;INT(11);;;;Capacidad máxima de estudiantes que pueden ocupar el aula.
+classroom;BASE TABLE;classroom_id;INT(11);Clave Primaria;;;Identificador único del aula. (Clave primaria)
+classroom;BASE TABLE;classroom_name;VARCHAR(50);;;;Nombre o código que identifica el aula.
+course;BASE TABLE;course_id;INT(11);Clave Primaria;;;Identificador único del curso. (Clave primaria)
+course;BASE TABLE;course_name;VARCHAR(100);;;;Nombre del curso.
+course;BASE TABLE;description;TEXT;;;;Breve descripción del contenido o propósito del curso.
+course;BASE TABLE;end_date;DATE;;;;Fecha de finalización del curso.
+course;BASE TABLE;start_date;DATE;;;;Fecha de inicio del curso.
+course_material;BASE TABLE;course_id;INT(11);Clave Foránea;course;course_id;Identificador del curso al que pertenece el material. (Clave foránea)
+course_material;BASE TABLE;material_id;INT(11);Clave Primaria;;;Identificador único del material de curso. (Clave primaria)
+course_material;BASE TABLE;material_title;VARCHAR(100);;;;Título del material de curso.
+course_material;BASE TABLE;material_type;VARCHAR(50);;;;Tipo de material (por ejemplo, documento, video).
+course_material;BASE TABLE;material_url;VARCHAR(255);;;;URL o enlace al material de curso.
+course_material_overview;VIEW;course_id;INT(11);;;;Identificador del curso al que pertenece la vista resumen. (Clave foránea)
+course_material_overview;VIEW;course_name;VARCHAR(100);;;;Nombre del curso.
+course_material_overview;VIEW;total_materials;BIGINT(21);;;;Número total de materiales asociados al curso.
+enrollment;BASE TABLE;course_id;INT(11);Clave Foránea;course;course_id;Identificador del curso en el que está inscrito el estudiante. (Clave foránea)
+enrollment;BASE TABLE;enrollment_date;DATE;;;;Fecha en que el estudiante se inscribió en el curso.
+enrollment;BASE TABLE;enrollment_id;INT(11);Clave Primaria;;;Identificador único de la inscripción. (Clave primaria)
+enrollment;BASE TABLE;grade;FLOAT;;;;Calificación obtenida por el estudiante en el curso.
+enrollment;BASE TABLE;student_id;INT(11);Clave Foránea;student;student_id;Identificador del estudiante inscrito. (Clave foránea)
+exam;BASE TABLE;course_id;INT(11);Clave Foránea;course;course_id;Identificador del curso al que corresponde el examen. (Clave foránea)
+exam;BASE TABLE;exam_date;DATE;;;;Fecha en la que se realizó el examen.
+exam;BASE TABLE;exam_id;INT(11);Clave Primaria;;;Identificador único del examen. (Clave primaria)
+exam;BASE TABLE;exam_type;VARCHAR(50);;;;Tipo de examen (por ejemplo, parcial, final).
+exam;BASE TABLE;total_marks;INT(11);;;;Puntuación total del examen.
+extracurricular_activity;BASE TABLE;activity_id;INT(11);Clave Primaria;;;Identificador único de la actividad extracurricular. (Clave primaria)
+extracurricular_activity;BASE TABLE;activity_name;VARCHAR(100);;;;Nombre de la actividad extracurricular.
+extracurricular_activity;BASE TABLE;description;TEXT;;;;Breve descripción de la actividad.
+extracurricular_activity;BASE TABLE;end_date;DATE;;;;Fecha de finalización de la actividad.
+extracurricular_activity;BASE TABLE;start_date;DATE;;;;Fecha de inicio de la actividad.
+grade_fact;BASE TABLE;assessment_date;DATE;;;;Fecha en la que se realizó la evaluación.
+grade_fact;BASE TABLE;course_id;INT(11);Clave Foránea;course;course_id;Identificador del curso evaluado. (Clave foránea)
+grade_fact;BASE TABLE;grade;FLOAT;;;;Calificación obtenida en la evaluación.
+grade_fact;BASE TABLE;grade_fact_id;INT(11);Clave Primaria;;;Identificador único de la evaluación. (Clave primaria)
+grade_fact;BASE TABLE;student_id;INT(11);Clave Foránea;student;student_id;Identificador del estudiante evaluado. (Clave foránea)
+grade_fact;BASE TABLE;teacher_id;INT(11);Clave Foránea;teacher;teacher_id;Identificador del profesor que realizó la evaluación. (Clave foránea)
+parent;BASE TABLE;email;VARCHAR(100);;;;Correo electrónico del padre o tutor.
+parent;BASE TABLE;first_name;VARCHAR(50);;;;Primer nombre del padre o tutor.
+parent;BASE TABLE;last_name;VARCHAR(50);;;;Apellido del padre o tutor.
+parent;BASE TABLE;parent_id;INT(11);Clave Primaria;;;Identificador único del padre o tutor. (Clave primaria)
+parent;BASE TABLE;phone_number;VARCHAR(15);;;;Número de teléfono del padre o tutor.
+parent;BASE TABLE;relationship_to_student;VARCHAR(50);;;;Relación con el estudiante (por ejemplo, madre, padre, tutor).
+schedule;BASE TABLE;classroom_id;INT(11);Clave Foránea;classroom;classroom_id;Identificador del aula donde se imparte el curso. (Clave foránea)
+schedule;BASE TABLE;course_id;INT(11);Clave Foránea;course;course_id;Identificador del curso que sigue el horario. (Clave foránea)
+schedule;BASE TABLE;day_of_week;VARCHAR(10);;;;Día de la semana en que se imparte el curso.
+schedule;BASE TABLE;end_time;TIME;;;;Hora de finalización del curso.
+schedule;BASE TABLE;schedule_id;INT(11);Clave Primaria;;;Identificador único del horario. (Clave primaria)
+schedule;BASE TABLE;start_time;TIME;;;;Hora de inicio del curso.
+schedule;BASE TABLE;teacher_id;INT(11);Clave Foránea;teacher;teacher_id;Identificador del profesor que imparte el curso. (Clave foránea)
+student;BASE TABLE;address;VARCHAR(255);;;;Dirección del estudiante.
+student;BASE TABLE;date_of_birth;DATE;;;;Fecha de nacimiento del estudiante.
+student;BASE TABLE;dni;VARCHAR(12);;;;Número de identificación personal del estudiante.
+student;BASE TABLE;email;VARCHAR(100);;;;Correo electrónico del estudiante.
+student;BASE TABLE;enrollment_date;DATE;;;;Fecha en que el estudiante se inscribió en la institución.
+student;BASE TABLE;first_name;VARCHAR(50);;;;Primer nombre del estudiante.
+student;BASE TABLE;gender;VARCHAR(10);;;;Género del estudiante.
+student;BASE TABLE;last_name;VARCHAR(50);;;;Apellido del estudiante.
+student;BASE TABLE;phone_number;VARCHAR(15);;;;Número de teléfono del estudiante.
+student;BASE TABLE;student_id;INT(11);Clave Primaria;;;Identificador único del estudiante. (Clave primaria)
+studentcourses;VIEW;course_name;VARCHAR(100);;;;Nombre del curso.
+studentcourses;VIEW;first_name;VARCHAR(50);;;;Primer nombre del estudiante.
+studentcourses;VIEW;grade;FLOAT;;;;Calificación del estudiante en el curso.
+studentcourses;VIEW;last_name;VARCHAR(50);;;;Apellido del estudiante.
+student_activity_participation;VIEW;activity_name;VARCHAR(100);;;;Nombre de la actividad en la que participó el estudiante.
+student_activity_participation;VIEW;end_date;DATE;;;;Fecha de finalización de la actividad.
+student_activity_participation;VIEW;start_date;DATE;;;;Fecha de inicio de la actividad.
+student_activity_participation;VIEW;student_id;INT(11);;;;Identificador del estudiante que participó. (Clave foránea)
+student_activity_participation;VIEW;student_name;VARCHAR(101);;;;Nombre del estudiante que participó.
+student_exam;BASE TABLE;exam_id;INT(11);Clave Primaria;;;Identificador del examen tomado por el estudiante. (Clave foránea)
+student_exam;BASE TABLE;marks_obtained;INT(11);;;;Puntuación obtenida por el estudiante en el examen.
+student_exam;BASE TABLE;student_id;INT(11);Clave Primaria;;;Identificador del estudiante que tomó el examen. (Clave foránea)
+student_parent;BASE TABLE;parent_id;INT(11);Clave Primaria;;;Identificador del padre o tutor. (Clave foránea)
+student_parent;BASE TABLE;relationship;VARCHAR(50);;;;Relación del padre o tutor con el estudiante.
+student_parent;BASE TABLE;student_id;INT(11);Clave Primaria;student;student_id;Identificador del estudiante. (Clave foránea)
+student_performance_summary;VIEW;average_grade;DOUBLE;;;;Calificación promedio del estudiante.
+student_performance_summary;VIEW;student_id;INT(11);;;;Identificador del estudiante. (Clave foránea)
+student_performance_summary;VIEW;student_name;VARCHAR(101);;;;Nombre del estudiante.
+student_performance_summary;VIEW;total_classes;BIGINT(21);;;;Número total de clases del curso.
+student_performance_summary;VIEW;total_present;DECIMAL(22,0);;;;Número total de clases a las que asistió el estudiante.
+teacher;BASE TABLE;address;VARCHAR(255);;;;Dirección del profesor.
+teacher;BASE TABLE;date_of_birth;DATE;;;;Fecha de nacimiento del profesor.
+teacher;BASE TABLE;dni;VARCHAR(12);;;;Número de identificación personal del profesor.
+teacher;BASE TABLE;email;VARCHAR(100);;;;Correo electrónico del profesor.
+teacher;BASE TABLE;first_name;VARCHAR(50);;;;Primer nombre del profesor.
+teacher;BASE TABLE;gender;VARCHAR(10);;;;Género del profesor.
+teacher;BASE TABLE;hire_date;DATE;;;;Fecha de inicio de contrato.
+teacher;BASE TABLE;last_name;VARCHAR(50);;;;Apellido del profesor
+teacher;BASE TABLE;phone_number;VARCHAR(15);;;;Número de teléfono del profesor.
+teacher;BASE TABLE;subject;VARCHAR(100);;;;Condiciones contractuales.
+teacher;BASE TABLE;teacher_id;INT(11);Clave Primaria;;;Identificador del profesor.
+teacherschedule;VIEW;classroom_name;VARCHAR(50);;;;Nombre del aula asignada para el horario.
+teacherschedule;VIEW;course_name;VARCHAR(100);;;;Nombre del curso programado.
+teacherschedule;VIEW;day_of_week;VARCHAR(10);;;;Día de la semana en el que el profesor tiene clases programadas.
+teacherschedule;VIEW;end_time;TIME;;;;Hora de finalización de la clase.
+teacherschedule;VIEW;start_time;TIME;;;;Hora de inicio de la clase.
+teacherschedule;VIEW;teacher_first_name;VARCHAR(50);;;;Primer nombre del profesor asignado a la clase.
+teacherschedule;VIEW;teacher_last_name;VARCHAR(50);;;;Apellido del profesor asignado a la clase.
