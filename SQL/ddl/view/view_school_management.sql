@@ -49,14 +49,17 @@ LEFT JOIN course_material cm ON c.course_id = cm.course_id
 GROUP BY 
     c.course_id;
 
-CREATE VIEW course_material_overview AS
+CREATE VIEW student_activity_participation AS
 SELECT 
-    c.course_id,
-    c.course_name,
-    COUNT(cm.material_id) AS total_materials
+    s.student_id,
+    CONCAT(s.first_name, ' ', s.last_name) AS student_name,
+    ea.activity_name,
+    ea.start_date,
+    ea.end_date
 FROM 
-    course c
-LEFT JOIN course_material cm ON c.course_id = cm.course_id
-GROUP BY 
-    c.course_id;
+    student s
+JOIN enrollment e ON s.student_id = e.student_id
+JOIN extracurricular_activity ea ON e.course_id = ea.activity_id;
+
+
 
